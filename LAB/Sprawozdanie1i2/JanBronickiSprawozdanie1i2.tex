@@ -18,7 +18,7 @@
 \title{
     Sprawozdanie 1 i 2\\
 
-    \Large SCR-Sieci Komputerowe,\\
+    \LARGE SCR-Sieci Komputerowe,\\
 
     Poniedziałek 15:15-16:65
 }
@@ -33,8 +33,8 @@
 
 
 \section{Wstęp}\par
-Ćwiczenie pierwsze ma na celu zapoznanie sie z wykorzystaniem wirtualizacji systemu operacyjnego np. Ubuntu, które jest bazowane na Debianie. Wykorzystanie podstawowych poleceń Bash'a w celu administracji systemem.\par
-Ćwiczenie drugie ma na celu zapoznanie się z podstawowym zarządzaniem użytkownikami na systemie Linux. Operacje takie jak tworzenie konta, dodawanie do grupy, nadawanie uprawnień itp..
+Ćwiczenie pierwsze ma na celu zapoznanie sie z wykorzystaniem wirtualizacji systemu operacyjnego np. \emph{\textbf{Ubuntu}}, które jest bazowane na \emph{\textbf{Debianie}}. Wykorzystanie podstawowych poleceń Bash'a w celu administracji systemem.\par
+Ćwiczenie drugie ma na celu zapoznanie się z podstawowym zarządzaniem użytkownikami na systemie \emph{\textbf{Linux}}. Operacje takie jak tworzenie konta, dodawanie do grupy, nadawanie uprawnień itp..
 
 \section{Wirtualizacja}
 Wirtualizacja daje nam możliwość emulacji hardware'u jakiegoś komputera. Pozwala to na uruchomienie wirtualnego systemu operacyjnego wewnątrz
@@ -46,14 +46,61 @@ Maszyna wirtualna ma także swój własny dysk, który żyje na maszynie rzeczyw
 Dzięki wirtualizacji możliwe jest także jednoczesne uruchomienie kilku wirtualnych
 komputerów (a co za tym idzie różnych konfiguracji oraz różnych systemów operacyjnych), połączenie ich w sieć i przesyłanie między nimi plików, zaznajamiając
 się w ten sposób z protokołami sieciowymi, bez konieczności posiadania kilku maszyn
-w domu. Dla potrzeb tego kursu, systemem hostującym jest Windows 10, programem
-obsługującym wirtualizację VirtualBox, a systemem emulowanym - Ubuntu 18.04LTS.
+w domu. Dla potrzeb tego kursu, systemem hostującym jest \emph{\textbf{Windows 10}}, programem
+obsługującym wirtualizację VirtualBox, a systemem emulowanym - \emph{\textbf{Ubuntu 18.04LTS}}.
 
 \section{Dystrybucja Linuxa "Ubuntu"}
-Ubuntu – kompletna dystrybucja systemu operacyjnego GNU/Linux, przeznaczona głównie do zastosowań biurowych i domowych. W 2011 dodano nową powłokę graficzną – Unity – będącą nakładką na popularnego GNOME.
+\emph{\textbf{Ubuntu}} – kompletna dystrybucja systemu operacyjnego \emph{\textbf{GNU/Linux}}, przeznaczona głównie do zastosowań biurowych i domowych. W 2011 dodano nową powłokę graficzną – Unity – będącą nakładką na popularnego \emph{\textbf{GNOME}}.
 
-Ubuntu opiera się na dystrybucji Debian (w wersji Sid) i jest rozwijane na serwisie Launchpad. Projekt sponsorowany jest przez przedsiębiorstwo Marka Shuttlewortha Canonical Ltd. oraz Ubuntu Foundation. Według sondaży online w 2012 Ubuntu był najpopularniejszą dystrybucją GNU/Linuksa na komputerach osobistych. Jednak Ubuntu jest również popularne na serwerach i w chmurze. Ubuntu wydawane jest w regularnych, sześciomiesięcznych odstępach czasowych.
+\emph{\textbf{Ubuntu}} opiera się na dystrybucji \emph{\textbf{Debian}} (w wersji Sid) i jest rozwijane na serwisie Launchpad. Projekt sponsorowany jest przez przedsiębiorstwo Marka Shuttlewortha \emph{\textbf{Canonical}} Ltd. oraz Ubuntu Foundation. Według sondaży online w 2012 Ubuntu był najpopularniejszą dystrybucją \emph{\textbf{GNU/Linuksa}} na komputerach osobistych. Jednak \emph{\textbf{Ubuntu}} jest również popularne na serwerach i w chmurze. \emph{\textbf{Ubuntu}} wydawane jest w regularnych, sześciomiesięcznych odstępach czasowych.
 
 \section{Konta użytkowników systemu}
+W systemie \emph{\textbf{Ubuntu}} istenieje  możliwość pracy na wielu kontach, tak aby na jednym komputerze (PC lub serwerze) mogło bezpiecznie pracować kilka
+osób (w przypadku serwerowym także jednocześnie). Każdy użytkownik ma swój folder
+(zwykle w folderze \emph{\textbf{/home/}}), nad którego zawartością powinien mieć pełną władzę. \par 
+Nie powinien jednak mieć dostępu do rzeczy, które nie są w jego folderze (tj. plików innych użytkowników). W tym celu stosuje się podział na grupy. Domyślnie na komputerze zawsze jest konto administratora nazywające się 
+\emph{\textbf{root}}.\par
+Konto to ma dostęp do każdego pliku na dysku komputera oraz pełną kontrolę nad kontami pozostałych użytkowników. Będąc zalogowanym jako \emph{\textbf{root}} można przez nieuwagę
+mocno zaszkodzić systemowi operacyjnemu, co w przypadku innych kont jest dużo trudniejsze. Podstawowe informacje o użytkownikach znaleźć można w pliku \emph{\textbf{/etc/passwd}}.
+
+\section{Tworzenie Kont}
+Do tworzenia kont używa się jednej z dwóch komend:
+
+\begin{itemize}
+    \item useradd
+    \item adduser
+\end{itemize}
+
+Polecenie \emph{\textbf{adduser}} jest bardzo proste w działaniu, dodaje wpis o nowym użytkowniku do pliku \emph{\textbf{/ect/passwd}}. Wymaga potem, aby ustalić domyślną powłokę (z ang. Shell), dla nowego użytkownika, dodać mu hasło, założyc folder itp..\par
+
+Za to \emph{\textbf{adduser}} jest dużo bardziej złożony. Należy podać nowe hasło, dla użytkownika oraz można wpisać dane użytkownika takie jak imię, nazwisko itp.. Program ten autoamtycznie założy użytkownikowi folder oraz ustawi powłokę (Shell'a) na Bash.\par 
+\newpage
+Przykład:
+\begin{itemize}
+    \item \emph{\textbf{useradd John}} - Stworzy podstawę pod utworzenie konta użytkownika zwanego
+    „John”
+    \item \emph{\textbf{adduser Ben}} - Zada dodatkowe pytania i stworzy w pełni gotowe konto użytkownika o nazwie „Ben”
+\end{itemize}
+
+\section{Grupy użytkowników}
+
+\subsection{Po co są grupy}
+Grupy są bardzo ważną funkcjonalnością systemu, zwłaszcza przy serwerze, na którym użytkownicy pracują zdalnie w jednym czasie. Dzięki grupom możemy rozdzielić
+użytkowników na kilka działów i zarządzać każdym z nich z osobna. Każdy użytkownik
+może być w więcej niż jednej grupie. \par
+
+\subsection{Tworzenie grupy użytkowników}
+
+Aby utworzyć grupę nalezy skorzystać z polecenia \emph{\textbf{addgroup}}. Jego użycie jest bardzo
+proste - wystarczy podać jako parametr polecenia nazwę tworzonej grupy. Dozwolone
+jest korzystanie z wielu opcji dodatkowych.\par
+Przykład użycia:
+\begin{itemize}
+    \item \emph{\textbf{addgroup students}} - Tworzy pustą grupę o nazwie „students”.
+\end{itemize}
+
+\subsection{Dodanie użytkownika do grupy}
+
+
 
 \end{document}
