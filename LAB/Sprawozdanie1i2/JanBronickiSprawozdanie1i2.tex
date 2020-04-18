@@ -32,9 +32,17 @@
 \maketitle
 
 
+
+
+
 \section{Wstęp}\par
 Ćwiczenie pierwsze ma na celu zapoznanie sie z wykorzystaniem wirtualizacji systemu operacyjnego np. \emph{\textbf{Ubuntu}}, które jest bazowane na \emph{\textbf{Debianie}}. Wykorzystanie podstawowych poleceń Bash'a w celu administracji systemem.\par
 Ćwiczenie drugie ma na celu zapoznanie się z podstawowym zarządzaniem użytkownikami na systemie \emph{\textbf{Linux}}. Operacje takie jak tworzenie konta, dodawanie do grupy, nadawanie uprawnień itp..
+
+
+
+
+
 
 \section{Wirtualizacja}
 Wirtualizacja daje nam możliwość emulacji hardware'u jakiegoś komputera. Pozwala to na uruchomienie wirtualnego systemu operacyjnego wewnątrz
@@ -49,10 +57,20 @@ się w ten sposób z protokołami sieciowymi, bez konieczności posiadania kilku
 w domu. Dla potrzeb tego kursu, systemem hostującym jest \emph{\textbf{Windows 10}}, programem
 obsługującym wirtualizację VirtualBox, a systemem emulowanym - \emph{\textbf{Ubuntu 18.04LTS}}.
 
+
+
+
+
+
 \section{Dystrybucja Linuxa "Ubuntu"}
 \emph{\textbf{Ubuntu}} – kompletna dystrybucja systemu operacyjnego \emph{\textbf{GNU/Linux}}, przeznaczona głównie do zastosowań biurowych i domowych. W 2011 dodano nową powłokę graficzną – Unity – będącą nakładką na popularnego \emph{\textbf{GNOME}}.
 
 \emph{\textbf{Ubuntu}} opiera się na dystrybucji \emph{\textbf{Debian}} (w wersji Sid) i jest rozwijane na serwisie Launchpad. Projekt sponsorowany jest przez przedsiębiorstwo Marka Shuttlewortha \emph{\textbf{Canonical}} Ltd. oraz Ubuntu Foundation. Według sondaży online w 2012 Ubuntu był najpopularniejszą dystrybucją \emph{\textbf{GNU/Linuksa}} na komputerach osobistych. Jednak \emph{\textbf{Ubuntu}} jest również popularne na serwerach i w chmurze. \emph{\textbf{Ubuntu}} wydawane jest w regularnych, sześciomiesięcznych odstępach czasowych.
+
+
+
+
+
 
 \section{Konta użytkowników systemu}
 W systemie \emph{\textbf{Ubuntu}} istenieje  możliwość pracy na wielu kontach, tak aby na jednym komputerze (PC lub serwerze) mogło bezpiecznie pracować kilka
@@ -63,6 +81,11 @@ Nie powinien jednak mieć dostępu do rzeczy, które nie są w jego folderze (tj
 Konto to ma dostęp do każdego pliku na dysku komputera oraz pełną kontrolę nad kontami pozostałych użytkowników. Będąc zalogowanym jako \emph{\textbf{root}} można przez nieuwagę
 mocno zaszkodzić systemowi operacyjnemu, co w przypadku innych kont jest dużo trudniejsze. Podstawowe informacje o użytkownikach znaleźć można w pliku \emph{\textbf{/etc/passwd}}.
 
+
+
+
+
+\newpage
 \section{Tworzenie Kont}
 Do tworzenia kont używa się jednej z dwóch komend:
 
@@ -74,7 +97,7 @@ Do tworzenia kont używa się jednej z dwóch komend:
 Polecenie \emph{\textbf{adduser}} jest bardzo proste w działaniu, dodaje wpis o nowym użytkowniku do pliku \emph{\textbf{/ect/passwd}}. Wymaga potem, aby ustalić domyślną powłokę (z ang. Shell), dla nowego użytkownika, dodać mu hasło, założyc folder itp..\par
 
 Za to \emph{\textbf{adduser}} jest dużo bardziej złożony. Należy podać nowe hasło, dla użytkownika oraz można wpisać dane użytkownika takie jak imię, nazwisko itp.. Program ten autoamtycznie założy użytkownikowi folder oraz ustawi powłokę (Shell'a) na Bash.\par 
-\newpage
+
 Przykład:
 \begin{itemize}
     \item \emph{\textbf{useradd John}} - Stworzy podstawę pod utworzenie konta użytkownika zwanego
@@ -82,25 +105,108 @@ Przykład:
     \item \emph{\textbf{adduser Ben}} - Zada dodatkowe pytania i stworzy w pełni gotowe konto użytkownika o nazwie „Ben”
 \end{itemize}
 
+
+
+
+
 \section{Grupy użytkowników}
+
 
 \subsection{Po co są grupy}
 Grupy są bardzo ważną funkcjonalnością systemu, zwłaszcza przy serwerze, na którym użytkownicy pracują zdalnie w jednym czasie. Dzięki grupom możemy rozdzielić
 użytkowników na kilka działów i zarządzać każdym z nich z osobna. Każdy użytkownik
 może być w więcej niż jednej grupie. \par
 
+
+
 \subsection{Tworzenie grupy użytkowników}
 
 Aby utworzyć grupę nalezy skorzystać z polecenia \emph{\textbf{addgroup}}. Jego użycie jest bardzo
 proste - wystarczy podać jako parametr polecenia nazwę tworzonej grupy. Dozwolone
 jest korzystanie z wielu opcji dodatkowych.\par
-Przykład użycia:
+Przykład:
 \begin{itemize}
     \item \emph{\textbf{addgroup students}} - Tworzy pustą grupę o nazwie „students”.
 \end{itemize}
 
+
+
+\newpage
 \subsection{Dodanie użytkownika do grupy}
 
+Aby dodać użytkownika do grupy potrzebne będzie polecenie usermod. Korzysta się
+zazwyczaj z niego w następujący sposób:
+usermod -a -G grupa użytkownik
+Przykład:
+\begin{itemize}
+    \item \emph{\textbf{usermod -a -G students John}} - Dodaje konto „John” do grupy „students”. Grupa
+    musi istnieć - w razie pomyłki w nazwie nie zostanie utworzona automatycznie nowa
+    grupa, ale operacja zostanie przerwana.
+\end{itemize}
+Obecne grupy możemy sprawdzić oraz edytować w pliku \emph{\textbf{/etc/group}}.
+
+
+
+
+\section{Prawa do plików oraz folderów}
+
+W systemach Linuksowych każdy plik może być używany w różny sposób
+przez różnych użytkowników. Uprawnienia do pliku dzielą się na 3 typy:
+\begin{itemize}
+\item   \emph{\textbf{r}} - Prawo do odczytu (możliwość wyświetlenia pliku, skopiowania go oraz wyświetlenia listy plików w przypadku folderu)
+\item   \emph{\textbf{w}} - Prawo do zapisu (możliwość nadpisania pliku, przeniesienia, a także usunięcia)
+\item   \emph{\textbf{x}} - Prawo do wykonywania (możliwość wykonania programu oraz wejścia do folderu)
+\end{itemize}
+
+Dodatkowo każde uprawnienie można nakładać na 3 różnie grupy zasięgowe:
+\begin{itemize}
+    \item właściciel pliku
+    \item grupa
+    \item inni - użytkownicy spoza grupy
+\end{itemize}
+
+
+Po wpisaniu polecenia ls -l ukaże się lista plików wraz z kodem uprawnień w takiej
+postaci:
+\begin{itemize}
+    \item \emph{\textbf{drwxrwxrwx}}
+\end{itemize}
+Gdzie pierwszy znak informuje o tym, czy jest to folder, 3 kolejne o prawach dostępu, 
+dla właściciela, 3 kolejne o prawach dostępu, dla grupy i 3 ostatnie o prawach dostępu, dla inncyh użytkowników.
+
+
+
+\newpage
+\subsection{Polecenie \emph{\textbf{chmod}}}
+Każdy plik oraz folder ma przypisane określone prawa dostępu dla różnych użytkowników systemu.\par
+Polecenie \emph{\textbf{chmod}} zmienia parametry zezwolenia dostępu do plików w systemie Ubuntu.
+Parametry polecenia chmod:
+\emph{\textbf{chmod [opcje] uprawnienia plik}}\\
+
+Uprawnienia jakie można nadać plikom:
+\begin{itemize}
+    \item \emph{\textbf{r}} - odczyt
+    \item \emph{\textbf{w}} - zapis
+    \item \emph{\textbf{x}} - wykonanie
+\end{itemize}
+
+Opis "klas" użytkowników, którym można zmienić uprawnienia:
+\begin{itemize}
+    \item  \emph{\textbf{user}} - właściciel
+    \item  \emph{\textbf{group}} - grupa
+    \item  \emph{\textbf{inni}} - użytkownicy spoza grupy
+    \item  \emph{\textbf{a}} - wszyscy użytkownicy
+\end{itemize}
+Przykład:
+\emph{\textbf{chmod o+x file.txt}} - Nadaje prawo do uruchomienia, dla innych dla pliku „file.txt”
+
+
+
+
+\section{Podsumowanie}
+W systemie operacyjnym Ubuntu dowolnie można modyfikować grupy oraz dostęp do różnych
+plików. Będąc administratorem (\emph{\textbf{root}}'em), posiada się dostęp do całej palety poleceń, dzięki którym można modyfikować właściwości plików, grup oraz poszczególnych użytkowników.
+Dokumentacja poleceń pozwala na bezproblemową modyfikację systemu.
 
 
 \end{document}
