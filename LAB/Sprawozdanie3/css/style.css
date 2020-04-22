@@ -1,0 +1,106 @@
+
+body
+{
+    background-color: #ffffff;
+    color: #555555;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    /* same as above */
+    font: normal 16px Arial, Helvetica, sans-serif;
+
+    line-height: 1.6em;
+    margin: 0;
+}
+
+
+a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+
+a:hover
+{
+    color:red;
+}
+
+
+a:active
+{
+    color: green;
+}
+
+
+
+
+.container
+{
+    width: 80%;
+    margin: auto;
+}
+
+
+.box-1
+{
+    background-color: #333333;
+    color: #ffffff;
+    border: 5px red solid;
+    border-top-style: dotted;
+    border-bottom-style: dotted;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.box-1 h1
+{
+    font-family: Tahoma, 'Segoe UI', Geneva, Verdana, sans-serif;
+    font-weight: 800;
+    font-style: italic;
+    text-decoration: underline;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    word-spacing: 1em;
+
+}
+
+
+.box-2
+{
+    border: 3px dotted #ccc;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+
+.categories
+{
+    border: 1px #ccc solid;
+    padding: 10pc;
+    border-radius: 15px;
+}
+
+
+.categories h2
+{
+    text-align: center;
+}
+
+.categories ul
+{
+    padding: 0;
+    list-style: upper-roman;
+}
+
+
+.categories li
+{
+    padding-bottom: 6px;
+    border-bottom: 1px #333;
+    list-style: url('../images/check.png');
+    /*  */
+}
