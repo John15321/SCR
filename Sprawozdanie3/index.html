@@ -33,7 +33,19 @@
         #github-logo
         {
             max-width:15%;
-            
+        }
+
+        #javascript-example
+        {
+            text-align: center;
+        }
+
+        #js-dog
+        {
+            padding-top: 50px;
+            padding-right: 30px;
+            padding-bottom: 50px;
+            padding-left: 80px;
         }
     </style>
 </head>
@@ -46,9 +58,9 @@
     <section id="main-section">
         <img src="GitHub_Logo.png" alt="GitHub" id="github-logo">
         <br>
-        Link do mojego GitHub'a, gdzie trzymam rzeczy z laboratoriów z przedmiotu SCR: <a  href="https://github.com/John15321/SCR/tree/master">SCR-Lab</a>
+        Link do mojego GitHub'a, gdzie trzymam rzeczy z laboratoriów z przedmiotu SCR: <a  href="https://github.com/John15321/SCR/tree/master">SCR-Lab GitHub</a>
         <br>
-        Link do kodu html tej strony oraz PDFa ze sprawozdaniem: <a href="https://github.com/John15321/SCR/tree/master/Sprawozdanie3">Sprawozdanie HTML</a>
+        Link do kodu html tej strony oraz PDFa ze sprawozdaniem jest również dostępny tutaj: <a href="https://github.com/John15321/SCR/tree/master/Sprawozdanie3">Sprawozdanie HTML GitHub</a>
     </section>
 
     <section id="javascript-example">
@@ -56,15 +68,42 @@
         Kliknij przycisk aby pokazać psa: <br>
         <input type="button" name="show-dog" value="Pokaż Psa" onclick="show_dog()">
         <input type="button" name="hide-dog" value="Schowaj Psa" onclick="hide_dog()">
-    </section>
-    
-    <section id="js-dog">
         
+        <section id="js-dog">
+            
+        </section>
     </section>
+        
+
+
+    <section>
+        <h1>Przykładowy paragraf oraz listy</h1>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam non eveniet odio! Architecto totam consequatur deserunt explicabo ratione delectus maxime id fuga accusantium vitae, quos veniam iure est, dolor unde. Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis atque aut laborum modi eius facere praesentium vero aliquid quod consectetur non, labore voluptatem eaque, sed sit nemo et iste recusandae! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat explicabo labore deserunt nisi veritatis, iure ullam enim! Tempore cupiditate ducimus omnis labore reprehenderit dolor? Asperiores eos quam quisquam temporibus perspiciatis! Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum sed fuga culpa hic nemo quibusdam ad, nam sequi voluptate suscipit fugit sit iste ab! Incidunt vel nihil deserunt. Fugit, ipsa.
+        </p>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+            <li>item 4</li>
+            <li>item 5</li>
+        </ul>
+
+        <ol>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+            <li>item</li>
+        </ol>
+    </section>
+
 
     <footer id="main-footer">
         Strona zrobiona przez Jan Bronicki
     </footer>
+
 
     <script>
         console.log("Test czy dziala");
@@ -73,12 +112,15 @@
             console.log("show_dog()");
             // wziecie elementu html
             var dog_pic = document.getElementById("js-dog");
+            // edycja kontentu html ktory znajduje sie w obiekcie z danym id
             dog_pic.innerHTML = "<img src='corgi.png' alt='corgi dog photo'>";    
         }
 
         function hide_dog() 
         {
+            // wziecie elementu html
             var dog_pic = document.getElementById("js-dog");
+            // edycja kontentu html ktory znajduje sie w obiekcie z danym id
             dog_pic.innerHTML = "";    
         }
     </script>
