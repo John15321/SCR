@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sprawozdanie html</title>
+    <title>Sprawozdanie HTML</title>
+    <!-- Troche CSS'a, aby ladniej ulozyc strone -->
     <style type="text/css">
         #main-header
         {
@@ -14,22 +16,71 @@
 
         #main-footer
         {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: red;
+            color: white;
             text-align: center;
-            color: gray;
+        }
+
+        #main-section
+        {
+            text-align: center;
+        }
+
+        #github-logo
+        {
+            max-width:15%;
+            
         }
     </style>
 </head>
+
 <body>
     <header id="main-header">
-        <h1>Header mojej strony</h1>
+        <h1>Ćwiczenia: lab04.html <br> Jan Bronicki 249011</h1>
     </header>
-    
-    Link do mojego GitHub'a, gdzie trzymam rzeczy z tego przedmiotu: <a href=""></a>
 
+    <section id="main-section">
+        <img src="GitHub_Logo.png" alt="GitHub" id="github-logo">
+        <br>
+        Link do mojego GitHub'a, gdzie trzymam rzeczy z laboratoriów z przedmiotu SCR: <a  href="https://github.com/John15321/SCR/tree/master">SCR-Lab</a>
+        <br>
+        Link do kodu html tej strony oraz PDFa ze sprawozdaniem: <a href="https://github.com/John15321/SCR/tree/master/Sprawozdanie3">Sprawozdanie HTML</a>
+    </section>
+
+    <section id="javascript-example">
+        <h1 >Przykład Javascript</h1>
+        Kliknij przycisk aby pokazać psa: <br>
+        <input type="button" name="show-dog" value="Pokaż Psa" onclick="show_dog()">
+        <input type="button" name="hide-dog" value="Schowaj Psa" onclick="hide_dog()">
+    </section>
+    
+    <section id="js-dog">
+        
+    </section>
 
     <footer id="main-footer">
         Strona zrobiona przez Jan Bronicki
     </footer>
 
+    <script>
+        console.log("Test czy dziala");
+        function show_dog() 
+        {
+            console.log("show_dog()");
+            // wziecie elementu html
+            var dog_pic = document.getElementById("js-dog");
+            dog_pic.innerHTML = "<img src='corgi.png' alt='corgi dog photo'>";    
+        }
+
+        function hide_dog() 
+        {
+            var dog_pic = document.getElementById("js-dog");
+            dog_pic.innerHTML = "";    
+        }
+    </script>
 </body>
 </html>
