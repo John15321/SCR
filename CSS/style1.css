@@ -1,0 +1,43 @@
+body
+{
+    color: white;
+    font-size: 24px;
+    background-color: #242582;
+}
+
+.mainroll
+{
+    background-color: #553D67;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 2.5%;
+    padding: 20px;
+    border-radius: 25px;
+}
+
+.center
+{
+    padding: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.my_header
+{
+    background-color: #553D67;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-top: 1%;
+    padding: 20px 20px 20px 20px;
+    border-radius: 25px;
+}
+
+.header_pic
+{
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
