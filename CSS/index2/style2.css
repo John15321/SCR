@@ -1,35 +1,112 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: sans-serif;
 }
 
-
-html, body{
+html, body {
     height: 100%;
 }
- 
- 
 
-.container
-{
+body {
     width: 100%;
     height: 100%;
     background: #42455a;
 }
 
-.menu ul{
+.container {
+    width: 100%;
+    height: 100%;
+    background: #42455a;
+}
+
+.menu ul {
     display: inline-flex;
     margin: 50px;
 }
 
-
-.menu ul li{
+.menu ul li {
     list-style: none;
     margin: 0 20px;
     color: #b2b1b1;
     cursor: pointer;
 }
 
+.logo img {
+    width: 30px;
+    margin-top: -7px;
+    margin-right: 48px;
+}
 
-https://www.youtube.com/watch?v=-2LtZRi6Q0s&t=108s
+.active {
+    color: #19dafa !important;
+}
+
+.kernel-button {
+    top: 40px;
+    right: 80px;
+    position: absolute;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd00da, #19d7f8);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+
+.menu-button{
+    top: 40px;
+    text-decoration: none;
+    color: #fff;
+    border: 2px solid transparent;
+    border-radius: 20px;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+
+.kernel-button span {
+    display: block;
+    padding: 8px 22px;
+}
+
+.banner {
+    width: 80%;
+    top: 25%;
+    left: 130px;
+    position: absolute;
+    color: white;
+}
+
+.app-text {
+    width: 50%;
+    float: left;
+}
+
+.app-text h1 {
+    font-size: 43px;
+    width: 640px;
+    position: relative;
+    margin-left: 40px;
+}
+
+.app-text p {
+    width: 650px;
+    font-size: 15px;
+    margin: 30px 0 30px 40px;
+    line-height: 25px;
+    color: #919191;
+}
+
+.main-picture {
+    width: 50%;
+    float: right;
+}
+
+.main-picture img {
+    width: 100%;
+    margin-top: -20px;
+    padding-left: 50px;
+}
