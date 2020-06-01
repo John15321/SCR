@@ -68,7 +68,7 @@ body {
     top: 40px;
     text-decoration: none;
     color: #fff;
-    border: 2px solid transparent;
+    border: 20px solid transparent;
     border-radius: 20px;
     background-image: linear-gradient(#42455a, #42455a), radial-gradient(circle at top left, #fd0000, #eeff00);
     background-origin: border-box;
